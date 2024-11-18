@@ -1,0 +1,212 @@
+/* General Styles */
+body
+ {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+/* Safe area insets for iPhone */
+@supports (padding: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Set the background for the entire page, including the safe area */
+html {
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, #11998E, transparent 70%),
+                radial-gradient(circle at 70% 30%, black, transparent 70%),
+                radial-gradient(circle at 50% 70%, #C83C2B, transparent 70%),
+                radial-gradient(circle at 70% 50%, #102F82, transparent 70%);
+    background-blend-mode: screen;
+    animation: gradientShift 10s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* Keyframes for the dynamic background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    40% { background-position: 100% 50%; }
+    60% { background-position: 75% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Card Styles */
+.card {
+    width: 90%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: none;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px); /* For fade-up effect */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 30%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Name Styles */
+.name, .description, .links {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Decorative Divider */
+.divider, .end-divider {
+    margin: 10px auto;
+    width: 50%;
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #C83C2B, #102F82);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.end-divider {
+    margin-top: 20px;
+    width: 20%;
+    height: 3px;
+}
+
+.divider.fade-in, .end-divider.fade-in {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* Links Section */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* General Button Styling */
+.button {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 10px auto;
+    text-align: center;
+    width: 300px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+/* Specific Button Styles */
+.button.linkedin {
+    background: linear-gradient(190deg, #0077B5, #00398FC4);
+}
+
+.button.linkedin:hover {
+    background: linear-gradient(190deg, #00398FC4, #0077B5);
+}
+
+.button.lab {
+    background: linear-gradient(190deg, #60606c, #2E2D2D);
+}
+
+.button.lab:hover {
+    background: linear-gradient(190deg, #2E2D2D, #60606c);
+}
+
+.button.idlabs {
+    background: linear-gradient(190deg, #C83C2B, #102F82);
+}
+
+.button.idlabs:hover {
+    background: linear-gradient(190deg, #102F82, #C83C2B);
+}
+
+.button.mail {
+    background: linear-gradient(190deg, #249ee4, #034fa0);
+}
+
+.button.mail:hover {
+    background: linear-gradient(190deg, #0f3464, #249ee4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .profile-pic {
+        margin-right: 15px;
+    }
+
+    .links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* Safe area insets for iPhone */
+@supports (padding: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
